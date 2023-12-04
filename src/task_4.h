@@ -11,7 +11,6 @@ struct Element {
 
     Element(int v, int r, int c) : value(v), row(r), col(c) {}
 
-    // Custom comparison function for min-heap
     bool operator>(const Element& other) const {
         return value > other.value;
     }
@@ -21,17 +20,14 @@ int kthSmallest(vector<vector<int>>& matrix, int k) {
     int n = matrix.size();
     priority_queue<Element, vector<Element>, greater<Element>> minHeap;
 
-    // Push the first element of each row into the min-heap
     for (int i = 0; i < n; ++i) {
         minHeap.push(Element(matrix[i][0], i, 0));
     }
 
-    // Extract the kth smallest element
     for (int i = 0; i < k - 1; ++i) {
         Element current = minHeap.top();
         minHeap.pop();
 
-        // Push the next element in the same row
         if (current.col < n - 1) {
             minHeap.push(Element(matrix[current.row][current.col + 1], current.row, current.col + 1));
         }
