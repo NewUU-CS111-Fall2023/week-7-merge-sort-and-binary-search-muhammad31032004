@@ -1,7 +1,7 @@
 /*
- * Author:
- * Date:
- * Name:
+ * Author: Mukhammadkhon Asrorov
+ * Date: 04/12/2023
+ * Name: homework (week 7)
  */
 
 #include <iostream>
